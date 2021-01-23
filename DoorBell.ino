@@ -52,6 +52,13 @@ const int state_eeprom_address = 0;
 
 static int max_files = 0;
 
+// Our power monitor input pin
+const int pwr_mon_pin = A0;
+#define VDIV_R8       7000    // Value of R8 in the resistor divider network
+#define VDIV_R7      10000    // Value of R7 in the resistor divider network
+#define VREF             5    // Arduino reference voltage
+#define PWR_IN(x) ( ( (x) * VREF * ( VDIV_R8 + VDIV_R7 ) ) / ( 1024 * VDIV_R8 ) )
+
 // Setting for the DFPlayer Mini
 SoftwareSerial dfplayer_serial( 10, 11 ); // RX, TX
 DFRobotDFPlayerMini cDFPlayer;
