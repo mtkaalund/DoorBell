@@ -4,13 +4,13 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date "sam. 04 avril 2015"
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
-Comment3 ""
+Title "DoorBelll"
+Date "2021-01-23"
+Rev "1"
+Comp "mtkaalund.dk"
+Comment1 "Created by Michael Torp Kaalund"
+Comment2 "Uses DFPlayer Mini https://www.dfrobot.com/product-1121.html"
+Comment3 "Uses Arduino Pro Mini https://store.arduino.cc/arduino-pro-mini"
 Comment4 ""
 $EndDescr
 Text Label 10350 1500 1    60   ~ 0
@@ -762,7 +762,7 @@ $EndComp
 Wire Wire Line
 	4900 2950 4900 2800
 Text Notes 5000 1550 0    50   ~ 0
-Power input\n\nPWR_MON = RAW * ( R8 / ( R8 + R7 ) ) \nRAW is maxium 12V and chould give \nabout 4.94 V out to PWR_MON.\nRAW should be between 7 - 12 Vdc
+Power input\n\nPWR_MON = RAW * ( R8 / ( R8 + R7 ) ) \nRAW is maximum 12V and chould give \nabout 4.94 V out to PWR_MON.\nRAW should be between 7 - 12 Vdc
 Wire Notes Line
 	6650 550  6650 3350
 Wire Notes Line
