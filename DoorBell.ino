@@ -57,7 +57,12 @@ const int pwr_mon_pin = A0;
 #define VDIV_R8       7000    // Value of R8 in the resistor divider network
 #define VDIV_R7      10000    // Value of R7 in the resistor divider network
 #define VREF             5    // Arduino reference voltage
-#define PWR_IN(x) ( ( (x) * VREF * ( VDIV_R8 + VDIV_R7 ) ) / ( 1024 * VDIV_R8 ) )
+#define PWR_IN(x) ( ( (float) (x) * VREF * ( VDIV_R8 + VDIV_R7 ) ) / ( 1024 * VDIV_R8 ) )
+#define CALC_ADC(x) ( (x) * 1024 * ((VDIV_R8) / ( VDIV_R8 + VDIV_R7 ) ) / VREF )
+#define VOLTAGE_MIN CALC_ADC( 8.3 ) 
+const int read_adc_every = 500; // Reading the ADC every 500 ms
+static int adc_timer = 0;
+int adc_value;
 
 // Setting for the DFPlayer Mini
 SoftwareSerial dfplayer_serial( 10, 11 ); // RX, TX
@@ -105,6 +110,8 @@ void setup() {
   Serial.print((int)ee_stats.saved_number);
   Serial.print(" Volume: ");
   Serial.println((int)ee_stats.volume);
+
+  adc_timer = millis();
 }
 
 void loop() {
@@ -112,6 +119,21 @@ void loop() {
   for( int i = 0; i < (int)button::END; i++ )
   {
      buttons[ i ]->loop();
+  }
+
+  if( (millis() - adc_timer ) > read_adc_every )
+  {
+    adc_timer = millis();
+    adc_value = analogRead( pwr_mon_pin );
+    Serial.print( "Power voltage: ");
+    Serial.print( PWR_IN( adc_value ) );
+    Serial.println(" V");
+
+    if( adc_value <= VOLTAGE_MIN )
+    {
+      Serial.println("Low voltage");
+      // TODO: Alert user 
+    }
   }
 
   if( buttons[ (int) button::DOORBELL ]->isPressed() )  
