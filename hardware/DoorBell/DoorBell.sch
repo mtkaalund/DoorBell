@@ -736,7 +736,7 @@ U 1 1 6013E3B2
 P 4900 2650
 F 0 "C1" H 5015 2696 50  0000 L CNN
 F 1 "100n" H 5015 2605 50  0000 L CNN
-F 2 "" H 4938 2500 50  0001 C CNN
+F 2 "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm" H 4938 2500 50  0001 C CNN
 F 3 "~" H 4900 2650 50  0001 C CNN
 	1    4900 2650
 	1    0    0    -1  
@@ -769,4 +769,8 @@ Wire Notes Line
 	2750 3350 6650 3350
 Wire Notes Line
 	2750 550  6650 550 
+Text Notes 5050 2000 0    50   ~ 0
+ADC = Vin * ( 1024 / Vref )\nArduino Vref is 5V\nSo at 12V input the ADC \nvalue should be\nADC = (5 / 5) * 1024 = 1024
+Text Notes 5300 3000 0    50   ~ 0
+Alternative calculation the \nRAW value from the ADC\ncan be done with this formula\n        ADC * Vref * (R8 + R7) \nRAW = ————————————————\n          ( 1024 * R8 )
 $EndSCHEMATC

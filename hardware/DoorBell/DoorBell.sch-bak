@@ -627,11 +627,7 @@ Wire Wire Line
 Wire Notes Line
 	4250 550  4250 3350
 Wire Notes Line
-	4250 3350 2750 3350
-Wire Notes Line
 	2750 3350 2750 550 
-Wire Notes Line
-	2750 550  4250 550 
 $Comp
 L Device:D D1
 U 1 1 600F00DB
@@ -740,7 +736,7 @@ U 1 1 6013E3B2
 P 4900 2650
 F 0 "C1" H 5015 2696 50  0000 L CNN
 F 1 "100n" H 5015 2605 50  0000 L CNN
-F 2 "" H 4938 2500 50  0001 C CNN
+F 2 "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm" H 4938 2500 50  0001 C CNN
 F 3 "~" H 4900 2650 50  0001 C CNN
 	1    4900 2650
 	1    0    0    -1  
@@ -765,4 +761,14 @@ F 3 "" H 4900 2950 50  0000 C CNN
 $EndComp
 Wire Wire Line
 	4900 2950 4900 2800
+Text Notes 5000 1550 0    50   ~ 0
+Power input\n\nPWR_MON = RAW * ( R8 / ( R8 + R7 ) ) \nRAW is maxium 12V and chould give \nabout 4.94 V out to PWR_MON.\nRAW should be between 7 - 12 Vdc
+Wire Notes Line
+	6650 550  6650 3350
+Wire Notes Line
+	2750 3350 6650 3350
+Wire Notes Line
+	2750 550  6650 550 
+Text Notes 5250 2900 0    50   ~ 0
+ADC = Vin * ( 1024 / Vref )\nArduino Vref is 5V\nSo at 12V input the ADC \nvalue should be\nADC = (5 / 5) * 1024 = 1024
 $EndSCHEMATC
