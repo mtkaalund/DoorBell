@@ -764,7 +764,7 @@ U 1 1 601514AE
 P 8750 4500
 F 0 "U1" H 8750 5187 60  0000 C CNN
 F 1 "DFPLAYER_MINI" H 8750 5081 60  0000 C CNN
-F 2 "" H 8750 4500 60  0001 C CNN
+F 2 "Arduino:DFPlayer_V2" H 8750 4500 60  0001 C CNN
 F 3 "" H 8750 4500 60  0000 C CNN
 	1    8750 4500
 	1    0    0    -1  
@@ -1147,5 +1147,93 @@ F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 4750 810 50  0001 C CNN
 F 3 "~" H 4750 810 50  0001 C CNN
 	1    4700 850 
 	0    1    1    0   
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H1
+U 1 1 6031E771
+P 5750 3600
+F 0 "H1" H 5850 3649 50  0000 L CNN
+F 1 "MountingHole_Pad" H 5850 3558 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.5mm_Pad_Via" H 5750 3600 50  0001 C CNN
+F 3 "~" H 5750 3600 50  0001 C CNN
+	1    5750 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H2
+U 1 1 6031F9C0
+P 5750 4050
+F 0 "H2" H 5850 4099 50  0000 L CNN
+F 1 "MountingHole_Pad" H 5850 4008 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.5mm_Pad_Via" H 5750 4050 50  0001 C CNN
+F 3 "~" H 5750 4050 50  0001 C CNN
+	1    5750 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H3
+U 1 1 603204AA
+P 5750 4500
+F 0 "H3" H 5850 4549 50  0000 L CNN
+F 1 "MountingHole_Pad" H 5850 4458 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.5mm_Pad_Via" H 5750 4500 50  0001 C CNN
+F 3 "~" H 5750 4500 50  0001 C CNN
+	1    5750 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H4
+U 1 1 60320859
+P 5750 4950
+F 0 "H4" H 5850 4999 50  0000 L CNN
+F 1 "MountingHole_Pad" H 5850 4908 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.5mm_Pad_Via" H 5750 4950 50  0001 C CNN
+F 3 "~" H 5750 4950 50  0001 C CNN
+	1    5750 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR017
+U 1 1 60320D86
+P 5750 3700
+F 0 "#PWR017" H 5750 3450 50  0001 C CNN
+F 1 "GND" H 5750 3550 50  0000 C CNN
+F 2 "" H 5750 3700 50  0000 C CNN
+F 3 "" H 5750 3700 50  0000 C CNN
+	1    5750 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR018
+U 1 1 603215E4
+P 5750 4150
+F 0 "#PWR018" H 5750 3900 50  0001 C CNN
+F 1 "GND" H 5750 4000 50  0000 C CNN
+F 2 "" H 5750 4150 50  0000 C CNN
+F 3 "" H 5750 4150 50  0000 C CNN
+	1    5750 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR019
+U 1 1 60321E2E
+P 5750 4600
+F 0 "#PWR019" H 5750 4350 50  0001 C CNN
+F 1 "GND" H 5750 4450 50  0000 C CNN
+F 2 "" H 5750 4600 50  0000 C CNN
+F 3 "" H 5750 4600 50  0000 C CNN
+	1    5750 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR020
+U 1 1 60322192
+P 5750 5050
+F 0 "#PWR020" H 5750 4800 50  0001 C CNN
+F 1 "GND" H 5750 4900 50  0000 C CNN
+F 2 "" H 5750 5050 50  0000 C CNN
+F 3 "" H 5750 5050 50  0000 C CNN
+	1    5750 5050
+	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
