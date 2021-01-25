@@ -61,9 +61,13 @@ const int low_voltage_pin = 9;
 #define PWR_IN(x) ( ( (float) (x) * VREF * ( VDIV_R8 + VDIV_R7 ) ) / ( 1024 * VDIV_R8 ) )
 #define CALC_ADC(x) ( (x) * 1024 * ((VDIV_R8) / ( VDIV_R8 + VDIV_R7 ) ) / VREF )
 #define VOLTAGE_MIN CALC_ADC( 8.3 ) 
-const int read_adc_every = 500; // Reading the ADC every 500 ms
+const int read_adc_every = 50; // Reading the ADC every 500 ms
+const int read_adc_number = 10; // the number of times adc is going to be readed
+int adc_reading[ read_adc_number ];
+int adc_count = 0;
 static int adc_timer = 0;
-int adc_value;
+int adc_total = 0;
+int adc_value = 0;
 bool low_voltage_is_active = false;
 static uint8_t low_voltage_counter = 0;
 
@@ -116,6 +120,11 @@ void setup() {
   Serial.println((int)ee_stats.volume);
 
   adc_timer = millis();
+  // Resets to adc_reading's to 0
+  for( int i = 0; i < read_adc_number; i++ )
+  {
+    adc_reading[ i ] = 0;
+  }
 }
 
 void loop() {
@@ -125,10 +134,23 @@ void loop() {
      buttons[ i ]->loop();
   }
 
+  // We are going to read the adc at an interval atleast read_adc_every
   if( (millis() - adc_timer ) > read_adc_every )
   {
     adc_timer = millis();
-    adc_value = analogRead( pwr_mon_pin );
+    // We are going to smooth out the adc over read_adc_number times. 
+    adc_total -= adc_reading[ adc_count ];
+    adc_reading[ adc_count ] = analogRead( pwr_mon_pin );
+    total += adc_reading[ adc_count ];
+    adc_count++;
+    // Wrap adc_count around
+    if( adc_count >= read_adc_number )
+    {
+      adc_count = 0;
+    }
+    // Calculate the average
+    adc_value = adc_total / read_adc_number;
+
     Serial.print( "Power voltage: ");
     Serial.print( PWR_IN( adc_value ) );
     Serial.println(" V");
