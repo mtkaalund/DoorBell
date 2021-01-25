@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 171)
+    (drawings 172)
     (tracks 398)
     (zones 0)
     (modules 39)
@@ -2744,6 +2744,7 @@
     )
   )
 
+  (gr_arc (start 147.32 50.8) (end 147.32 49.53) (angle -90) (layer F.SilkS) (width 0.15))
   (gr_line (start 167.64 54.61) (end 168.91 54.61) (layer F.SilkS) (width 0.15))
   (gr_line (start 166.37 55.88) (end 167.64 55.88) (layer F.SilkS) (width 0.15))
   (gr_line (start 160.02 62.23) (end 149.86 62.23) (layer F.SilkS) (width 0.15) (tstamp 600F34EC))
