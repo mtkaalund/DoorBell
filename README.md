@@ -1,8 +1,6 @@
 # DoorBell
 Perhaps an over-engineered doorbell using a Arduino Pro Mini and a DFPlayer Mini.
 
-
-
 ## Hardware
 The schematic are done in KiCad 5. 
 A little story, at first I only meant to put a electrial schematic together, so it was easier to create a breadboard for this project.
