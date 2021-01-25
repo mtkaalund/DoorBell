@@ -54,6 +54,7 @@ static int max_files = 0;
 
 // Our power monitor input pin
 const int pwr_mon_pin = A0;
+const int low_voltage_pin = 9;
 #define VDIV_R8       7000    // Value of R8 in the resistor divider network
 #define VDIV_R7      10000    // Value of R7 in the resistor divider network
 #define VREF             5    // Arduino reference voltage
@@ -63,6 +64,9 @@ const int pwr_mon_pin = A0;
 const int read_adc_every = 500; // Reading the ADC every 500 ms
 static int adc_timer = 0;
 int adc_value;
+bool low_voltage_is_active = false;
+static uint8_t low_voltage_counter = 0;
+
 
 // Setting for the DFPlayer Mini
 SoftwareSerial dfplayer_serial( 10, 11 ); // RX, TX
@@ -129,10 +133,36 @@ void loop() {
     Serial.print( PWR_IN( adc_value ) );
     Serial.println(" V");
 
+    // If the read value is equal or lower than VOLTAGE_MIN
+    // the set low_voltage_is_active to true
+    // and low_voltage_pin to output
     if( adc_value <= VOLTAGE_MIN )
     {
       Serial.println("Low voltage");
+      low_voltage_is_active = true;
+
+      pinMode(low_voltage_pin, OUTPUT);
       // TODO: Alert user 
+    }
+
+    // Here if the adc_value is more than the VOLTAGE_MIN and low_voltage_is_active is true
+    // then we are going to low_voltage_pin to input and low_voltage_is_active to false
+    if( adc_value > VOLTAGE_MIN && low_voltage_is_active == true)
+    {
+      pinMode(low_voltage_pin, INPUT);
+      low_voltage_is_active = false;
+    }
+
+    // if low_voltage_is_active then we will use
+    // low_voltage_counter to fade in out
+    if( low_voltage_is_active == true )
+    {
+      low_voltage_counter += 5;
+      if( low_voltage_counter > 255 )
+      {
+        low_voltage_counter = 10;
+      }
+      analogWrite( low_voltage_pin, low_voltage_counter );
     }
   }
 
