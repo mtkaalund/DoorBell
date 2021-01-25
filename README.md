@@ -11,6 +11,7 @@ As I was working with creating the schematics and the pcb, I tought it was under
 So I exposed them to the world and now it became a semi development board for the Arduino Pro Mini and DFPlayer Mini.
 
 There are two headers "Arduino IO" and "DFPlayer IO" which expose the remaining IO's.
+ss
  DFPlayer IO
 ---------------------------
  Header Pin | DFPlayer Pin
