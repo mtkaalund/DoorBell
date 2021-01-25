@@ -14,16 +14,16 @@ So I exposed them to the world and now it became a semi development board for th
 
 There are two headers "Arduino IO" and "DFPlayer IO" which expose the remaining IO's.
 
-Arduino IO
-------------
-Header Pin | Arduino Pin
-----------|--------------
-1 | GND
-2 | VCC
-3 | A3
-4 | A2
-5 | A1
-6 | 13 ( SCK )
+Arduino IO               | DFPlayer IO
+-------------------------|---------------------------
+Header Pin | Arduino Pin | Header Pin | DFPlayer Pin
+-----------|-------------|------------|--------------
+1 | GND | 1 | DF Adkey 2
+2 | VCC | 2 | DF Adkey 1
+3 | A3  | 3 | DF IO 2
+4 | A2  | 4 | DF IO 1
+5 | A1  | 5 | DF DAC L
+6 | 13 ( SCK ) | 6 | DF DAC R
 7 | 12 ( MISO )
 8 | 9 ( Low battery LED )
 9 | 8
