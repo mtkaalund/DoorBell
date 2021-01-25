@@ -4,7 +4,34 @@ Perhaps an over-engineered doorbell using a Arduino Pro Mini and a DFPlayer Mini
 
 
 ## Hardware
-The schematic are done in KiCad 5
+The schematic are done in KiCad 5. 
+A little story, at first I only meant to put a electrial schematic together, so it was easier to create a breadboard for this project.
+
+But as I thought it would be a good pratics to create a pcb of it (mostly because it has been a long time since I did one).
+
+As I was working with creating the schematics and the pcb, I tought it was underused, as it did'nt use all or expose the pins on the arduino or the DFPlayer Mini.
+So I exposed them to the world and now it became a semi development board for the Arduino Pro Mini and DFPlayer Mini.
+
+There are two headers "Arduino IO" and "DFPlayer IO" which expose the remaining IO's.
+
+Arduino IO
+------------
+Header Pin | Arduino Pin
+----------|--------------
+1 | GND
+2 | VCC
+3 | A3
+4 | A2
+5 | A1
+6 | 13 ( SCK )
+7 | 12 ( MISO )
+8 | 9 ( Low battery LED )
+9 | 8
+10 | Reset
+11 | 0 ( Rx )
+12 | 1 ( Tx )
+13 | GND
+14 | VCC
 
 ### Libs
 [Kicad footprints](https://github.com/joeylevy/KiCad_Arduino_Nano_DFPlayer_footprints)
